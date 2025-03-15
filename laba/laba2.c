@@ -3,18 +3,23 @@
 
 
 int main(int argc, char *argv[]) {
-    double Matrix[3][3];
+    
+    int n;
+    printf("Vvedite razmer matrici: \n");
+    scanf("%d", &n);
+
+    double Matrix[n][n];
     printf("Введите числа для матрицы\n");
-    for (int x = 0; x<3; x++){
-        for (int y=0; y<3; y++){
+    for (int x = 0; x<n; x++){
+        for (int y=0; y<n; y++){
             printf("Введите элемент [%d] [%d]: ",x,y);
             scanf("%lf", &Matrix[x][y]);
         }
     }
 	
 	printf("\nДанный Массив:\n");
-	for (int x = 0; x < 3; x++){
-		for (int y = 0; y < 3; y++){
+	for (int x = 0; x < n; x++){
+		for (int y = 0; y < n; y++){
 			printf("%.2lf ", Matrix[x][y]);
 		}
 		printf("\n");
@@ -23,9 +28,9 @@ int main(int argc, char *argv[]) {
 	double main, second;
 	main = second = 0;
 	
-	for (int i = 0; i < 3; i++){
+	for (int i = 0; i < n; i++){
 		main += Matrix[i][i];
-		second += Matrix[i][2-i];
+		second += Matrix[i][(n-1)-i];
 		
 	}
 	printf("Сумма элементов главной диагонали: %.2lf\n", main);
