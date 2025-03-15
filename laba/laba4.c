@@ -1,13 +1,5 @@
 #include <stdio.h>
-#include <math.h>
-
-int Perimetr(double a, double b,double c){
-    return a + b + c;
-};
-
-int Ploshad(double a, double b, double c, double p){
-    return sqrt(p*(p-a)*(p-b)*(p-c));
-};
+#include "Triangle.h"
 
 int main(int argc, char *argv[])
 {
@@ -21,8 +13,9 @@ int main(int argc, char *argv[])
 	scanf("%lf", &c);
 
 
-	if ((a < b+c) && (b <c+a) && (c < a+b)) {
+	if (RealorFake(a,b,c)) {
         double CurS, CurP;
+        
         CurP = Perimetr(a,b,c);
         CurS = Ploshad(a, b, c, CurP/2);
         
