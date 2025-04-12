@@ -31,24 +31,36 @@ int main() {
     
 
     for (int i = 0; i < 4; i++) {
-        if (fscanf(file, "%s %s %d", array1[i].name, array1[i].surname, &array1[i].birthYear) !=3) {
+        if (fscanf(file, "%s %s %d", array1[i].name, array1[i].surname, &array1[i].birthYear) != 3) {
             return 1;
         }
     }
-   
-    sortByBirthYear(array1, 4);
-
+    
     for (int i = 0; i < 4; i++) {
         array2[i] = array1[i];
     }
+    
+    sortByBirthYear(array2, 4);
+    
 
-    printf("\nОтсортированный список людей по годам рождения:\n");
-    for (int i = 0; i < 4; i++) {
-        printf("Имя: %s, Фамилия: %s, Год рождения: %d\n",
-               array2[i].name,
-               array2[i].surname,
-               array2[i].birthYear);
+    printf("\nсписок людей:\n"); 
+    for (int i = 0; i < 4; i++) {   
+         printf(" %s %s %d\n",
+                   array1[i].name,
+                   array1[i].surname,
+                   array1[i].birthYear);
     }
-
+    
+    printf("\nОтсортированный список людей:\n");
+    for (int i = 0; i < 4; i++) {
+        if (array2[i].name[0] == 'I') { 
+            printf(" %s %s %d\n",
+                   array2[i].name,
+                   array2[i].surname,
+                   array2[i].birthYear);
+        }
+    }
+       
+    
     return 0;
 }
